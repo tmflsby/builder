@@ -1,0 +1,1 @@
+export const SET_FOLD_SIDEBAR = 'SET_FOLD_SIDEBAR'
