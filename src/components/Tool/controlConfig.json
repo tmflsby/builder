@@ -1,0 +1,258 @@
+{
+  "geometry": {
+    "叠置分析": {
+      "srcLayer": {
+        "tooltip": "待进行叠置分析的图层"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行叠置分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "叠置分析结果图层的容差范围"
+      },
+      "returnFieldsArea": true,
+      "returnFieldsLength": true,
+      "handleResult": true
+    },
+    "差异分析": {
+      "srcLayer": {
+        "tooltip": "待进行差异分析的图层"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行差异分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "差异分析结果图层的容差范围"
+      },
+      "handleResult": true
+    },
+    "坐标投影转换": {
+      "srcLayer": {
+        "tooltip": "待进行坐标投影转换的图层"
+      },
+      "outSrs": {
+        "tooltip": "坐标投影转换后图层的空间参考"
+      },
+      "analysisResult": true
+    },
+    "投影系统转换": {
+      "prj": {
+        "tooltip": "待进行坐标投影转换的空间参考"
+      },
+      "outSrsType": {
+        "tooltip": "坐标投影转换后的空间参考类型"
+      },
+      "analysisResult": true
+    },
+    "对称差": {
+      "srcLayer": {
+        "tooltip": "待进行对称差分析的图层"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行对称差分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "对称差分析结果图层的容差范围"
+      },
+      "handleResult": true
+    },
+    "图形检查": {
+      "srcLayer": {
+        "tooltip": "待进行图形检查的图层"
+      },
+      "tolerance": {
+        "tooltip": "图形检查参数——容差"
+      },
+      "areaLimit": {
+        "tooltip": "图形检查参数——最小面积"
+      },
+      "analysisResultButton": true
+    },
+    "图形合并": {
+      "srcLayer": {
+        "tooltip": "待进行图形合并的图层"
+      },
+      "outSrs": {
+        "tooltip": "图形合并后图层的空间参考"
+      },
+      "handleResult": true
+    },
+    "几何属性": {
+      "srcLayer": {
+        "tooltip": "待进行几何属性分析的图层"
+      },
+      "attribute": {
+        "tooltip": "进行分析的几何属性参数"
+      },
+      "analysisResultButton": true
+    },
+    "缓冲分析": {
+      "srcLayer": {
+        "tooltip": "待进行缓冲分析的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行缓冲分析图层所在的空间参考"
+      },
+      "bufferSideType": {
+        "tooltip": "缓冲分析结果图层的缓冲区方向"
+      },
+      "bufferRadius": {
+        "tooltip": "缓冲分析结果图层的容差半径范围"
+      },
+      "handleResult": true
+    }
+  },
+  "query": {
+    "叠置分析": {
+      "srcLayer": {
+        "tooltip": "待进行叠置分析的图层"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行叠置分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "叠置分析结果图层的容差范围"
+      },
+      "handleResult": true,
+      "analysisResultButton": true
+    },
+    "多层叠置分析": {
+      "srcLayer": {
+        "tooltip": "待进行多层叠置分析的图层1"
+      },
+      "overlapLayer": {
+        "tooltip": "待进行多层叠置分析的图层2"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行多层叠置分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "多层叠置分析结果图层的容差范围"
+      },
+      "analysisResult": true,
+      "handleResult": true
+    },
+    "差异分析": {
+      "srcLayer": {
+        "tooltip": "待进行差异分析的图层"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行差异分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "差异分析结果图层的容差范围"
+      },
+      "analysisResult": true,
+      "handleResult": true
+    },
+    "多层差异分析": {
+      "srcLayer": {
+        "tooltip": "待进行多层差异分析的图层1"
+      },
+      "differenceLayer": {
+        "tooltip": "待进行多层差异分析的图层2"
+      },
+      "destLayer": {
+        "tooltip": "叠加对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行多层差异分析图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "叠加对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "多层差异分析结果图层的容差范围"
+      },
+      "analysisResult": true,
+      "handleResult": true
+    },
+    "表字段查询": {
+      "srcLayer": {
+        "tooltip": "待进行表字段查询的图层"
+      },
+      "analysisResultButton": true
+    },
+    "空间查询": {
+      "srcLayer": {
+        "tooltip": "待进行空间查询的图层"
+      },
+      "destLayer": {
+        "tooltip": "查询对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行空间查询图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "查询对象图层所在的空间参考"
+      },
+      "tolerance": {
+        "tooltip": "空间查询结果图层的容差范围"
+      },
+      "analysisResultButton": true
+    },
+    "汇总查询": {
+      "srcLayer": {
+        "tooltip": "待进行汇总查询的图层"
+      },
+      "destLayer": {
+        "tooltip": "查询对象所在的图层"
+      },
+      "srcGeoSrs": {
+        "tooltip": "待进行汇总查询图层所在的空间参考"
+      },
+      "destGeoSrs": {
+        "tooltip": "查询对象图层所在的空间参考"
+      },
+      "GroupFields": {
+        "tooltip": "以该字段分组查询"
+      },
+      "summaryFields": {
+        "tooltip": "以该字段汇总查询"
+      },
+      "summaryTypes": {
+        "tooltip": "查询返回值的类型(求和,最大值,最小值,平均数,计数)"
+      },
+      "tolerance": {
+        "tooltip": "汇总查询结果图层的容差范围"
+      },
+      "analysisResultButton": true
+    }
+  }
+}

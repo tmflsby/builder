@@ -24,7 +24,7 @@
       <el-input></el-input>
     </div>
     <div class="latitude">
-      <h3>维度</h3>
+      <h3>纬度</h3>
       <el-input></el-input>
     </div>
     <div class="zoom">
@@ -34,7 +34,7 @@
     <div class="copyright">
       <h3>
         <span class="iconfont icon-builder-logo"></span>
-        <span>KQ WEB MAP BUILDER</span>
+        <span>KQ Web Map Builder</span>
         <span>v1.0</span>
       </h3>
       <div>
@@ -61,9 +61,8 @@ export default {
   top: 50px;
   left: 50px;
   width: 300px;
-  padding: 15px;
+  padding: 15px 25px;
   box-sizing: border-box;
-  overflow: scroll;
   div {
     padding: 5px 0;
   }

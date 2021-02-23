@@ -1,0 +1,99 @@
+[
+  {
+    "name": "几何服务",
+    "class": "geometry",
+    "analysis": [
+      {
+        "name": "叠置分析",
+        "icon": "icon-analysis-overlay",
+        "tooltip": "对给定的两个图形的交集"
+      },
+      {
+        "name": "差异分析",
+        "icon": "icon-analysis-difference",
+        "tooltip": "求属于目标图形但不属于源图形的部分"
+      },
+      {
+        "name": "坐标投影转换",
+        "icon": "icon-analysis-project",
+        "tooltip": "对给定的图形的坐标进行投影转换"
+      },
+      {
+        "name": "投影系统转换",
+        "icon": "icon-analysis-projectsystem",
+        "tooltip": "将给定的空间参考转为目标类型空间参考"
+      },
+      {
+        "name": "对称差",
+        "icon": "icon-analysis-symdifference",
+        "tooltip": "求只属于给定要素类A或只属于要素类B，但不同时属于A和B的部分"
+      },
+      {
+        "name": "图形检查",
+        "icon": "icon-analysis-geometrycheck",
+        "tooltip": "图形的拓朴错误检查"
+      },
+      {
+        "name": "图形合并",
+        "icon": "icon-analysis-union",
+        "tooltip": "将给定的要素集合并为一个要素"
+      },
+      {
+        "name": "几何属性",
+        "icon": "icon-analysis-geometry-attribute",
+        "tooltip": "支持计算给定线状要素或面状要素的长度、中心点、外接矩形以及面状要素的面积"
+      },
+      {
+        "name": "缓冲分析",
+        "icon": "icon-analysis-buffer",
+        "tooltip": "计算给定的图形的缓冲区"
+      }
+    ]
+  },
+  {
+    "name": "通用查询服务",
+    "class": "query",
+    "analysis": [
+      {
+        "name": "叠置分析",
+        "icon": "icon-analysis-overlay",
+        "tooltip": "图层在where条件下查询到的结果记作result，查询图形geometry再与result作交运算，得到图层在相交部份的要素信息"
+      },
+      {
+        "name": "多层叠置分析",
+        "icon": "icon-analysis-overlay",
+        "tooltip": "图层1在where1条件下查询到的结果与geometry作相交判断，过滤掉图层1中不相交的部份，结果记作result1，图层2在where2条件下查询到的结果记作result2，result1再与result2作交运算，得到result1和result2交集的要素信息"
+      },
+      {
+        "name": "差异分析",
+        "icon": "icon-analysis-difference",
+        "tooltip": "图层在where条件下查询到的结果记作result，查询图形geometry再与result作差运算，得到属于geometry但不属于图层的要素信息"
+      },
+      {
+        "name": "多层差异分析",
+        "icon": "icon-analysis-difference",
+        "tooltip": "图层1在where1条件下查询到的结果与geometry作相交判断，过滤掉图层1中不相交的部份，结果记作result1，图层2在where2条件下查询到的结果记作result2，result1再与result2作差运算，得到属于result1而不属于result2的要素信息"
+      },
+      {
+        "name": "表字段查询",
+        "icon": "icon-analysis-fields",
+        "tooltip": "查询图层中的可进行分组或统计的字段信息，其中字符串类型及整型可作为分组字段，整型及浮点型可作为统计字段"
+      },
+      {
+        "name": "空间查询",
+        "icon": "icon-analysis-spatial",
+        "tooltip": "该功能是使用指定的where条件或空间条件查询指定要素图层中的要素信息"
+      },
+      {
+        "name": "汇总查询",
+        "icon": "icon-analysis-sumstatistics",
+        "tooltip": "该功能是使用指定的where条件或空间条件查询指定要素图层中的要素信息"
+      },
+      {
+        "name": "SQL查询",
+        "icon": "icon-analysis-sql",
+        "tooltip": "该功能是向服务发送一条sql，并在后台服务执行，返回sql语句的执行结果"
+      }
+    ]
+  }
+]

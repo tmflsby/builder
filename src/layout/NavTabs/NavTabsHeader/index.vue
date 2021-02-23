@@ -4,50 +4,55 @@
       <div class="builder-logo" @click="handleClickFold">
         <span class="iconfont icon-builder-logo"></span>
       </div>
-      <div class="project-name">
-        <el-input v-model="inputValue" placeholder="工程名"></el-input>
+      <div class="header-right-base-layer" v-if="selectBaseLayerPage">
+        <i class="fa fa-mail-reply" @click="handleClickBaseLayerBack"></i>
+        <div class="title">{{ this.selectBaseLayerName }}</div>
+        <span class="iconfont icon-menu-fold" @click="handleClickFold"></span>
       </div>
-      <div class="save">
-        <el-dropdown>
-          <span class="iconfont icon-save"></span>
-          <i class="el-icon-arrow-down"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="handleClickSave">保存</el-dropdown-item>
-            <el-dropdown-item @click.native="handleClickSaveAs">另存为</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
+      <div class="header-right-analysis" v-else-if="isAnalysisHeader">
+        <div class="title">
+          <span :class="['iconfont', this.analysisIcon]"></span>
+          <span class="name">{{ this.analysisName }}</span>
+        </div>
+        <i class="fa fa-mail-reply" @click="handleClickAnalysisBack"></i>
       </div>
-      <div class="pull" @click="handleClickPull">
-        <span class="iconfont icon-clouddown"></span>
-      </div>
-      <div class="fold" @click="handleClickFold">
-        <span class="iconfont icon-menu-fold"></span>
+      <div class="header-right-default" v-else>
+        <div class="project-name">
+          <el-input v-model="inputValue" placeholder="工程名"></el-input>
+        </div>
+        <div class="save">
+          <el-dropdown placement="bottom">
+            <span class="iconfont icon-save"></span>
+            <i class="el-icon-arrow-down"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item @click.native="handleClickSave">保存</el-dropdown-item>
+              <el-dropdown-item @click.native="handleClickSaveAs">另存为</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+        <div class="pull" @click="handleClickPull">
+          <span class="iconfont icon-clouddown"></span>
+        </div>
+        <div class="fold" @click="handleClickFold">
+          <span class="iconfont icon-menu-fold"></span>
+        </div>
       </div>
     </div>
     <div v-else class="nav-tabs-header">
-      <div class="fold" @click="handleClickFold">
+      <div class="folded" @click="handleClickFold">
         <span class="iconfont icon-menu-fold"></span>
       </div>
     </div>
-    <el-dialog
-      title="提示"
-      :visible.sync="pullDialogVisible"
-      width="30%"
-      :before-close="handleClose"
-    >
-      <span>这是一段信息</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="pullDialogVisible=false">取 消</el-button>
-        <el-button type="primary" @click="pullDialogVisible = false">确 定</el-button>
-      </span>
-    </el-dialog>
+    <ProjectDownloadDialog v-if="pullDialogVisible" :pullDialogVisible.sync="pullDialogVisible"/>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import ProjectDownloadDialog from '@/components/Dialog/ProjectDownloadDialog'
 export default {
   name: 'NavTabsHeader',
+  components: { ProjectDownloadDialog },
   data () {
     return {
       inputValue: '',
@@ -55,7 +60,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['isFold'])
+    ...mapState([
+      'isFold', 'selectBaseLayerPage', 'selectBaseLayerName',
+      'isAnalysisHeader', 'analysisName', 'analysisIcon'
+    ])
   },
   methods: {
     handleClickFold () {
@@ -70,12 +78,11 @@ export default {
     handleClickPull () {
       this.pullDialogVisible = true
     },
-    handleClose (done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done()
-        })
-        .catch(_ => {})
+    handleClickBaseLayerBack () {
+      this.$store.dispatch('setBaseLayerHeaderBack')
+    },
+    handleClickAnalysisBack () {
+      this.$store.dispatch('setAnalysisHeaderBack')
     }
   }
 }
@@ -84,49 +91,122 @@ export default {
 <style lang="scss" scoped>
 .nav-tabs-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: 50px;
-  padding: 0 5px;
   font-size: 20px;
   box-sizing: border-box;
   .builder-logo {
     width: 50px;
     height: 50px;
+    padding: 0 5px;
+    box-sizing: border-box;
     cursor: pointer;
     .icon-builder-logo {
       font-size: 40px;
     }
   }
-  .project-name {
+  .header-right-base-layer {
+    position: fixed;
+    top: 0;
+    left: 50px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-weight: bold;
-    width: 160px;
-  }
-  .save {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    .icon-save {
+    width: 300px;
+    height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    .fa-mail-reply {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    .title{
+      width: 200px;
+    }
+    .icon-menu-fold {
       font-size: 20px;
-    }
-    .el-icon-arrow-down {
-      font-size: 12px;
+      cursor: pointer;
     }
   }
-  .pull {
+  .header-right-analysis {
+    position: fixed;
+    top: 0;
+    left: 50px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    .icon-clouddown {
-      font-size: 20px;
+    width: 300px;
+    height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    .fa-mail-reply {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    .title {
+      width: 200px;
+      float: left;
+      .iconfont {
+        margin-left: 15px;
+        font-size: 20px;
+      }
+      .name {
+        margin-left: 15px;
+      }
     }
   }
-  .fold {
+  .header-right-default {
+    position: fixed;
+    top: 0;
+    left: 50px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    .project-name {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      width: 180px;
+    }
+    .save {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .icon-save {
+        font-size: 20px;
+      }
+      .el-icon-arrow-down {
+        font-size: 12px;
+      }
+    }
+    .pull {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .icon-clouddown {
+        font-size: 20px;
+      }
+    }
+    .fold {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .icon-menu-fold {
+        font-size: 20px;
+      }
+    }
+  }
+  .folded {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .icon-menu-fold {
       font-size: 20px;
     }

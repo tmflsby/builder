@@ -1,28 +1,30 @@
 <template>
   <div class="user-info">
-    <div class="user-info-icon" @click="handleClickUserInfo">
-      <span class="iconfont icon-user"></span>
-    </div>
-    <div class="user-info-content-wrapper" v-if="isShowUserInfo">
-      <div class="user-info-content">
-        <div class="account-info" @click.prevent="handleClickAccountInfo">
-          <span class="user-info-icon-font iconfont icon-account-info"></span>
-          <span class="title">账户信息</span>
-        </div>
-        <div class="create-map" @click.prevent="handleClickCreateMap">
-          <span class="user-info-icon-font iconfont icon-add-map"></span>
-          <span class="title">创建地图</span>
-        </div>
-        <div class="my-map" @click.prevent="handleClickMyMap">
-          <span class="user-info-icon-font iconfont icon-my-map"></span>
-          <span class="title">我的地图</span>
-        </div>
-        <div class="back-home" @click.prevent="handleClickBackHome">
-          <span class="user-info-icon-font iconfont icon-home-page"></span>
-          <span class="title">返回首页</span>
+    <el-popover placement="right" trigger="click" v-model="isUserInfoShow">
+      <div class="user-info-content-wrapper">
+        <div class="user-info-content">
+          <div class="account-info" @click.prevent="handleClickAccountInfo">
+            <span class="user-info-icon-font iconfont icon-account-info"></span>
+            <span class="title">账户信息</span>
+          </div>
+          <div class="create-map" @click.prevent="handleClickCreateMap">
+            <span class="user-info-icon-font iconfont icon-add-map"></span>
+            <span class="title">创建地图</span>
+          </div>
+          <div class="my-map" @click.prevent="handleClickMyMap">
+            <span class="user-info-icon-font iconfont icon-my-map"></span>
+            <span class="title">我的地图</span>
+          </div>
+          <div class="back-home" @click.prevent="handleClickBackHome">
+            <span class="user-info-icon-font iconfont icon-home-page"></span>
+            <span class="title">返回首页</span>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="user-info-icon" slot="reference">
+        <span class="iconfont icon-user"></span>
+      </div>
+    </el-popover>
   </div>
 </template>
 
@@ -31,32 +33,25 @@ export default {
   name: 'UserInfo',
   data () {
     return {
-      isShowUserInfo: false
+      isUserInfoShow: false
     }
   },
   methods: {
-    handleClickUserInfo () {
-      console.log('click userInfo')
-      this.isShowUserInfo = !this.isShowUserInfo
-    },
-    handleBlurUserInfo () {
-      this.isShowUserInfo = false
-    },
     handleClickAccountInfo () {
       console.log('click accountInfo')
-      this.isShowUserInfo = false
+      this.isUserInfoShow = false
     },
     handleClickCreateMap () {
       console.log('click createMap')
-      this.isShowUserInfo = false
+      this.isUserInfoShow = false
     },
     handleClickMyMap () {
       console.log('click myMap')
-      this.isShowUserInfo = false
+      this.isUserInfoShow = false
     },
     handleClickBackHome () {
       console.log('click backHome')
-      this.isShowUserInfo = false
+      this.isUserInfoShow = false
     }
   }
 }
@@ -71,15 +66,10 @@ export default {
   }
 }
 .user-info-content-wrapper {
-  position: fixed;
-  bottom: 0;
-  left: 50px;
   width: 200px;
   height: 200px;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 0 4px 0 0;
-  background: #F5F7FA;
   display: flex;
   align-items: center;
   .user-info-content {
@@ -107,7 +97,6 @@ export default {
       padding: 5px;
       font-size: 14px;
       text-align: center;
-      border-color: #ccc;
       border-style: solid;
       display: flex;
       flex-direction: column;

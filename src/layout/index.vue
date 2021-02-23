@@ -6,6 +6,12 @@
     <div ref="MapWrapper" class="map-wrapper">
       <Map/>
     </div>
+    <div class="searchbar-wrapper">
+      <Searchbar/>
+    </div>
+    <div class="guide-create-map-wrapper">
+      <GuideCreateMap/>
+    </div>
   </div>
 </template>
 
@@ -13,9 +19,11 @@
 import { mapState } from 'vuex'
 import NavTab from './NavTabs'
 import Map from './Map'
+import Searchbar from './Searchbar'
+import GuideCreateMap from './GuideCreateMap'
 export default {
   name: 'Layout',
-  components: { NavTab, Map },
+  components: { NavTab, Map, Searchbar, GuideCreateMap },
   computed: {
     ...mapState(['isFold'])
   },
@@ -44,12 +52,24 @@ export default {
   .nav-tabs-wrapper {
     width: 350px;
     height: 100%;
+    background: #ffffff;
     transition: .5s;
   }
   .map-wrapper {
     width: calc(100% - 350px);
     height: 100%;
     transition: .5s;
+  }
+  .searchbar-wrapper {
+    position: fixed;
+    top: 10px;
+    right: 60px;
+    min-width: 300px;
+    height: 50px;
+    z-index: 1000;
+  }
+  .guide-create-map-wrapper {
+    z-index: 1000;
   }
 }
 </style>
